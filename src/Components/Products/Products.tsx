@@ -1,9 +1,10 @@
 
+import { useEffect, useState } from 'react'
 import './products.css'
 
-import ProductsCard from './ProductsCard/ProductsCard'
+import ProductsCard, { ProductType } from './ProductsCard/ProductsCard'
 
-{/* Fetcheld be az adatokat a products jsonból és jelenítsd meg a products__container elemben*/}
+{/* Fetcheld be az adatokat a products jsonból és jelenítsd meg a products__container elemben*/ }
 
 /*Az alábbiakat állítsd be a producst.css-ben */
 /* 767px alatt egy sorban 2 óra jelenjen meg */
@@ -13,18 +14,27 @@ import ProductsCard from './ProductsCard/ProductsCard'
 /* 767 px alatt 2rem a fölöt 3rem legyen a rész az elemek között */
 
 const Products = () => {
+	const [products, setProducts] = useState<ProductType[]>([]);
 
-  return (
-    <section className="products container" id="products">
-    <h2 className="section__title">
-        Products
-    </h2>
+	useEffect(() => {
+		fetch('products.json')
+		.then(res => res.json())
+		.then(data => setProducts(data))
+	}, [])
 
-    <div className="products__container">
-      
-    </div>
-</section>
-  )
+	return (
+		<section className="products container" id="products">
+			<h2 className="section__title">
+				Products
+			</h2>
+
+			<div className="products__container">
+				{
+					products.map(item => <ProductsCard {...item}/>)
+				}
+			</div>
+		</section>
+	)
 }
 
 export default Products

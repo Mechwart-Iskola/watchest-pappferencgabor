@@ -19,6 +19,9 @@ const Home = () => {
             <a href="https://twitter.com/" target="_blank" className="home__social-link">
                 Twitter
             </a>
+            <a href="https://www.instagram.com/" target="_blank" className="home__social-link">
+                Instagram
+            </a>
             {/*Itt add hozzá a  az instagram linket  a fetiek mintájára, https://www.instagram.com/*/}
             
         </div>

@@ -8,10 +8,11 @@
 .story__container {
     display: grid;
     row-gap: 7.5rem;
+    grid-template-columns: 1fr;
 }
 
 .story__title {
-
+    font-size: var(--h1-font-size);
     margin-bottom: var(--mb-1);
 }
 
@@ -83,7 +84,7 @@
 
     .story__container {
         font-size: var(--normal-font-size);
-
+        grid-template-columns: repeat(2, 1fr);
         align-items: center;
     }
 
